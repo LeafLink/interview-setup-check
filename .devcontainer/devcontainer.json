@@ -1,0 +1,18 @@
+// Generated file. Do not edit by hand.
+{
+  "name": "leaflink-interview",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "forwardPorts": [
+    3000,
+    5173
+  ],
+  "postCreateCommand": "corepack enable && pnpm install --frozen-lockfile && pnpm test"
+}

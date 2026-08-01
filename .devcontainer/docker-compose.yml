@@ -1,0 +1,23 @@
+# Generated file. Do not edit by hand.
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/base:ubuntu-24.04
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/catalog
+      COREPACK_ENABLE_DOWNLOAD_PROMPT: '0'
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: catalog
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d catalog']
+      interval: 2s
+      timeout: 2s
+      retries: 15
