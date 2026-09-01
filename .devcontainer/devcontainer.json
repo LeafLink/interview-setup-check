@@ -1,0 +1,29 @@
+// Generated file. Do not edit by hand.
+{
+  "name": "leaflink-interview",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "TypeScriptTeam.native-preview"
+      ],
+      "settings": {
+        "js/ts.experimental.useTsgo": true,
+        "js/ts.tsdk.path": "./node_modules/typescript"
+      }
+    }
+  },
+  "forwardPorts": [
+    3000,
+    5173
+  ],
+  "postCreateCommand": "corepack enable && pnpm install --frozen-lockfile && pnpm test"
+}
